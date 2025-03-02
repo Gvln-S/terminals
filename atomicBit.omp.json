@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "style": "plain",
+          "template": "\u256d\u2500[<#ffff55>{{ .UserName }}</><#ffffff>@</><#ffffff>{{ .HostName }}</>]\u2500",
+          "type": "session"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "properties": {
+            "style": "full"
+          },
+          "template": "<#ffffff>[</>{{ .Path }}<#ffffff>]</>",
+          "type": "path"
+        },
+        {
+          "foreground": "#fab387",
+          "style": "plain",
+          "template": "<#ffffff>\u2500(</>#<#ffffff>)</>",
+          "type": "root"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "#ffffff",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "plain",
+          "template": "<#ffffff>[</>{{ .HEAD }}{{ if .Staging.Changed }}<#C50F1F> \u25cf {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#C50F1F> \u25cf {{ .Working.String }}</>{{ end }}<#ffffff>]-</>",
+          "type": "git"
+        },
+        {
+          "foreground": "#ffffff",
+          "foreground_templates": ["{{ if gt .Code 0 }}#ffffff{{ end }}"],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "> ",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 3
+}
